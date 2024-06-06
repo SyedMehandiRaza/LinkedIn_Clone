@@ -6,13 +6,14 @@ import upload_icon from '../../assets/upload.png'
 import more_icon from '../../assets/more.png'
 import notification_icon from '../../assets/notification.png'
 import jack_icon from '../../assets/jack.png'
+import PropTypes from 'prop-types';
 
 
-const Navbar = () => {
+const Navbar = ({setSidebar}) => {
   return (
     <nav className='flex-div'>
       <div className="nav-left flex-div">
-        <img src={menu_icon} alt="" className="menu-icon" />
+        <img src={menu_icon} alt="" className="menu-icon" onClick={()=>setSidebar(prev => prev===false?true:false)}/>
         <img src={logo} alt="" className="logo" />
       </div>
 
@@ -31,5 +32,9 @@ const Navbar = () => {
     </nav>
   )
 }
+
+Navbar.propTypes = {
+  setSidebar: PropTypes.func.isRequired,
+};
 
 export default Navbar
